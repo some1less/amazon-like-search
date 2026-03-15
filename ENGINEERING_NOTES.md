@@ -22,7 +22,7 @@ Furthermore, since the task specified features such as **brand** and **category 
 
 ### Development process
 
-- **Retrieving data from OpenFoodFacts**: The task is to populate the **`products`** table with data from the public API. I had to write a short Python script to load the CORRECT data into the table. (it was French, not full etc)
+- **Retrieving data from OpenFoodFacts**: The task is to populate the **`products`** table with data from the public API. I had to write a short Python script to load the CORRECT data into the table. (initially it was in French, not full etc -> FIXED)
 
 
 
