@@ -14,7 +14,7 @@ Since React and .NET are familiar topics for me, I decided to pick them for this
 
 ### Database Design decision
 
-The main task is to develop a search engine that does not perform insert, update, or delete operations. With this in mind, it was decided to create a single, denormalized **`products`** table, which allows for fast data access by minimizing the number of **JOIN** operations to zero.
+The main task is to develop a search engine for a product catalog, which represents a **read-heavy workload**. With this in mind, it was decided to create a single, denormalized **`products`** table, which allows for fast data access by minimizing the number of **JOIN** operations to zero.
 
 Furthermore, since the task specified features such as **brand** and **category faceted search**, I decided to also create indexes for these parameters in order to speed up data retrieval in O(log n) lookups by using **B-Tree** index tree for brands and **GIN** for the categories array.
 
