@@ -1,0 +1,227 @@
+.toolbar-container {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.combined-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 850px;
+    background-color: #ffffff;
+    border-radius: 32px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.02);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.combined-form:focus-within {
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.search-textarea {
+    width: 100%;
+    min-height: 44px;
+    max-height: 200px;
+    font-size: 1.05rem;
+    color: #333;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    resize: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.search-textarea::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.bottom-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.filter-dropdown-wrapper,
+.settings-dropdown-wrapper {
+    position: relative;
+}
+
+.clean-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: #555;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.settings-dropdown-wrapper .clean-btn {
+    margin-right: 12px;
+}
+
+.clean-btn:hover {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+}
+
+.dropdown-icon {
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-icon.open {
+    transform: rotate(180deg);
+}
+
+.filter-dropdown, .settings-dropdown {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+    z-index: 10;
+    padding: 15px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-dropdown {
+    top: 0;
+    left: 100%;
+    width: auto;
+    white-space: nowrap;
+    transform: translateX(-10px);
+}
+
+.filter-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(10px);
+}
+
+.settings-dropdown {
+    top: calc(100% + 5px);
+    right: 0;
+    left: auto;
+    width: 200px;
+    transform: translateY(-10px);
+}
+
+.settings-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(10px);
+}
+
+.filter-options-horizontal {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-option-btn {
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #555;
+    transition: background-color 0.1s;
+}
+
+.filter-option-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.combined-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    background-color: #d0d0d0;
+}
+
+.search-textarea:not(:placeholder-shown) ~ .bottom-controls .search-button {
+    background-color: #1a1a1a;
+}
+
+.settings-options-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tool-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.tool-number-input {
+    width: 60px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.tool-number-input:focus {
+    border-color: #1a1a1a;
+}
+
+.tool-number-input::-webkit-outer-spin-button,
+.tool-number-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.tool-number-input[type=number] {
+    -moz-appearance: textfield;
+}
