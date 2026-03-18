@@ -9,10 +9,23 @@ function App() {
     const { products, loading, error } = useProducts(requestParams);
 
     return (
-        <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ 
+            padding: '20px', 
+            maxWidth: '1200px', 
+            margin: '0 auto', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center' }}>
 
-            <h1 style={{ fontFamily: 'system-ui, sans-serif', fontSize: '2.5rem', color: '#1a1a1a', marginBottom: '20px', marginTop: '60px' }}>
-                What do you want to find?
+            <h1 style={{
+                fontFamily: 'system-ui, sans-serif',
+                fontSize: '2.5rem',
+                color: '#383737',
+                marginBottom: '20px',
+                marginTop: '60px',
+                fontWeight: 550
+            }}>
+                It's like Amazon search, but waaaaay simpler
             </h1>
 
             <Toolbar

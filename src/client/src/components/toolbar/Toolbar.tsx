@@ -10,7 +10,8 @@ interface Props {
     onPageSizeChange: (size: number) => void;
 }
 
-export const Toolbar = ({ initialQuery, onSearch, page, onPageChange, pageSize, onPageSizeChange }: Props) => {
+export const Toolbar = 
+    ({ initialQuery, onSearch, page, onPageChange, pageSize, onPageSizeChange }: Props) => {
     const [inputValue, setInputValue] = useState(initialQuery);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -110,7 +111,7 @@ export const Toolbar = ({ initialQuery, onSearch, page, onPageChange, pageSize, 
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Search for snacks, drinks, or any groceries..."
+                    placeholder="Search for snacks, drinks, or any groceries"
                     className="search-textarea"
                     rows={1}
                 />
@@ -119,7 +120,15 @@ export const Toolbar = ({ initialQuery, onSearch, page, onPageChange, pageSize, 
                     <div className="filter-dropdown-wrapper" ref={filterWrapperRef}>
                         <button type="button" className="clean-btn" onClick={toggleFilterDropdown}>
                             Filters
-                            <svg className={`dropdown-icon ${showFilterDropdown ? 'open' : ''}`} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <svg className={`dropdown-icon ${showFilterDropdown ? 'open' : ''}`} 
+                                 width="12" 
+                                 height="12" 
+                                 viewBox="0 0 24 24" 
+                                 fill="none" 
+                                 stroke="currentColor" 
+                                 strokeWidth="2" 
+                                 strokeLinecap="round" 
+                                 strokeLinejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </button>
@@ -136,7 +145,15 @@ export const Toolbar = ({ initialQuery, onSearch, page, onPageChange, pageSize, 
                         <div className="settings-dropdown-wrapper" ref={settingsWrapperRef}>
                             <button type="button" className="clean-btn" onClick={toggleSettingsDropdown}>
                                 Settings
-                                <svg className={`dropdown-icon ${showSettingsDropdown ? 'open' : ''}`} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <svg className={`dropdown-icon ${showSettingsDropdown ? 'open' : ''}`} 
+                                     width="12" 
+                                     height="12" 
+                                     viewBox="0 0 24 24" 
+                                     fill="none" 
+                                     stroke="currentColor" 
+                                     strokeWidth="2" 
+                                     strokeLinecap="round" 
+                                     strokeLinejoin="round">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </button>
@@ -162,7 +179,8 @@ export const Toolbar = ({ initialQuery, onSearch, page, onPageChange, pageSize, 
                                             type="number"
                                             min="1"
                                             value={localPageSize}
-                                            onChange={(e) => setLocalPageSize(e.target.value)}
+                                            onChange={(e) => 
+                                                setLocalPageSize(e.target.value)}
                                             onBlur={handlePageSizeBlurOrEnter}
                                             onKeyDown={handlePageSizeBlurOrEnter}
                                             className="tool-number-input"
@@ -177,7 +195,14 @@ export const Toolbar = ({ initialQuery, onSearch, page, onPageChange, pageSize, 
                             className={`search-button ${isSearchDisabled ? 'disabled' : ''}`}
                             disabled={isSearchDisabled}
                         >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <svg width="20" 
+                                 height="20" 
+                                 viewBox="0 0 24 24" 
+                                 fill="none" 
+                                 stroke="currentColor" 
+                                 strokeWidth="2" 
+                                 strokeLinecap="round" 
+                                 strokeLinejoin="round">
                                 <line x1="12" y1="19" x2="12" y2="5"></line>
                                 <polyline points="5 12 12 5 19 12"></polyline>
                             </svg>
