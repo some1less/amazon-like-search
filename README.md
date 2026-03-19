@@ -1,7 +1,8 @@
 # Amazon-like Faceted Search
 
-<img width="3024" height="668" alt="image" src="https://github.com/user-attachments/assets/b8b6ff73-139a-493b-bb01-6aaa16322417" />
-A full-stack product catalog search engine implementing faceted filtering, pagination, and URL-driven state management. The application operates on a subset of the [Open Food Facts](https://world.openfoodfacts.org/data) dataset containing approximately 10,000 products.
+<img width="3024" height="668" alt="image" src="https://github.com/user-attachments/assets/b8b6ff73-139a-493b-bb01-6aaa16322417"/>
+
+A full-stack product catalog search engine implementing faceted filtering, pagination, and URL-driven state management. The application operates on a subset of the [Open Food Fact](https://world.openfoodfacts.org/data) dataset containing approximately 10,000 products.
 
 ## Deployments
 
