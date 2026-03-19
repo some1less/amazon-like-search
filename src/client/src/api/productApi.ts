@@ -1,7 +1,8 @@
 import type {Product, SearchProductRequest} from "../types/product.ts";
 
-const API_URL = 'http://localhost:5234/api/products';
-const FILTER_API_URL = 'http://localhost:5234/api/filters';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5234';
+const API_URL = `${BASE_URL}/api/products`;
+const FILTER_API_URL = `${BASE_URL}/api/filters`;
 
 export const fetchProducts = async (request: SearchProductRequest) : Promise<Product[]> => {
     const url = new URL(`${API_URL}/search`);
