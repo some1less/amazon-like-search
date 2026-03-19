@@ -20,8 +20,7 @@ public class ProductRepository : IProductRepository
     public async Task<IEnumerable<Product>> SearchProductsAsync(string? word, int page, int pageSize,
         CancellationToken cancellationToken)
     {
-        using var connection = new NpgsqlConnection(_connectionString);
-        
+        await using var connection = new NpgsqlConnection(_connectionString);
         await connection.OpenAsync(cancellationToken);
 
         var sqlBuilder = new StringBuilder();
@@ -45,5 +44,44 @@ public class ProductRepository : IProductRepository
         return await connection.QueryAsync<Product>(new CommandDefinition(
             sqlBuilder.ToString(), parameters,
             cancellationToken: cancellationToken));
+    }
+
+    public async Task<IEnumerable<string>> GetTopBrandsAsync(int limit, CancellationToken ct)
+    {
+        await using var connection = new NpgsqlConnection(_connectionString);
+        await connection.OpenAsync(ct);
+
+        var sql = @"
+                SELECT brand
+                FROM products
+                WHERE brand IS NOT NULL AND brand != ''
+                GROUP BY brand
+                ORDER BY COUNT(id) DESC 
+                LIMIT @Limit; ";
+        
+        return await connection.QueryAsync<string>(new CommandDefinition(
+            sql, new {Limit = limit},
+            cancellationToken: ct));
+    }
+
+    public async Task<IEnumerable<string>> GetTopCategoriesAsync(int limit, CancellationToken ct)
+    {
+        await using var connection = new NpgsqlConnection(_connectionString);
+        await connection.OpenAsync(ct);
+        var sql = @"
+        SELECT category 
+        FROM (
+            SELECT UNNEST(categories) as category 
+            FROM products 
+            WHERE categories IS NOT NULL
+        ) sub
+        WHERE category != '' 
+        GROUP BY category 
+        ORDER BY COUNT(*) DESC 
+        LIMIT @Limit;";
+
+        return await connection.QueryAsync<string>(
+            new CommandDefinition(sql, new { Limit = limit }, cancellationToken: ct)
+        );
     }
 }

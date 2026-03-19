@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
+builder.Services.AddMemoryCache();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost", policy =>
